@@ -1,1 +1,146 @@
+/* RESET BÁSICO */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
+/* CORPO DO SITE */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #fafafa;
+    color: #333;
+}
+
+/* CABEÇALHO */
+header {
+    background-color: #ff914d;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+/* MENU */
+nav {
+    margin-top: 10px;
+}
+
+nav a {
+    color: white;
+    margin: 0 10px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+/* HOVER MENU */
+nav a:hover {
+    text-decoration: underline;
+    opacity: 0.8;
+}
+
+/* SEÇÕES */
+section {
+    padding: 40px 20px;
+}
+
+/* HOME */
+#home {
+    background-color: #ffe0cc;
+    text-align: center;
+}
+
+/* SERVIÇOS */
+#servicos {
+    background-color: #f4f4f4;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap; /* responsivo */
+}
+
+/* CARDS */
+.card {
+    background-color: white;
+    padding: 20px;
+    border-radius: 12px;
+    width: 180px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: 0.3s;
+}
+
+/* EFEITO CARD */
+.card:hover {
+    transform: translateY(-5px);
+}
+
+/* CONTATO */
+#contato {
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+}
+
+/* FORMULÁRIO */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-width: 350px;
+    width: 100%;
+}
+
+/* INPUTS */
+input,
+textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+/* FOCO INPUTS */
+input:focus,
+textarea:focus {
+    outline: none;
+    border-color: #ff914d;
+}
+
+/* BOTÃO */
+button {
+    background-color: #ff914d;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+/* HOVER BOTÃO */
+button:hover {
+    background-color: #e67e3c;
+}
+
+/* RODAPÉ */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 15px;
+}
+
+/* RESPONSIVIDADE (CELULAR) */
+@media (max-width: 600px) {
+    nav a {
+        display: block;
+        margin: 5px 0;
+    }
+
+    #servicos {
+        flex-direction: column;
+        align-items: center;
+    }
+}
