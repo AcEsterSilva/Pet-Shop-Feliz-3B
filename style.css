@@ -1,146 +1,622 @@
-/* RESET BÁSICO */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+
+
+* {                                     /* Seleciona todos os elementos da página */
+
+    margin:0;                           /* Remove margens padrão */
+
+    padding:0;                          /* Remove espaçamentos internos padrão */
+
+    box-sizing:border-box;              /* Faz padding e border entrarem na largura total */
+
+    font-family:'Poppins',sans-serif;   /* Define fonte padrão para todo o site */
 }
 
-/* CORPO DO SITE */
-body {
-    font-family: Arial, sans-serif;
-    background-color: #fafafa;
-    color: #333;
+/* Rolagem suave */
+html {                                  /* Aplica na tag html */
+
+    scroll-behavior:smooth;             /* Deixa a rolagem da página suave */
 }
 
-/* CABEÇALHO */
-header {
-    background-color: #ff914d;
-    color: white;
-    text-align: center;
-    padding: 20px;
+body {                                  /* Estiliza o corpo da página */
+
+    background:                         /* Define o fundo da página */
+    linear-gradient(                    /* Degradê de cores */
+        135deg,                         /* Ângulo diagonal */
+        #fff8f0,                        /* Cor 1 */
+        #ffe7d1,                        /* Cor 2 */
+        #ffd6b3                         /* Cor 3 */
+    );
+
+    background-attachment:fixed;        /* Fundo fica fixo ao rolar a página */
+
+    color:#333;                         /* Cor do texto padrão */
+
+    transition:0.4s;                    /* Suaviza mudanças (importante pro dark mode) */
+
+    overflow-x:hidden;                  /* Evita rolagem horizontal indesejada */
 }
 
-/* MENU */
-nav {
-    margin-top: 10px;
+.dark {                                 /* Classe usada para ativar o modo escuro */
+
+    background:#121212;                 /* Fundo escuro */
+
+    color:white;                        /* Texto branco */
 }
 
-nav a {
-    color: white;
-    margin: 0 10px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: 0.3s;
+/* Elementos dark */
+.dark .card,                            /* Aplica modo escuro nos cards */
+.dark .produto,
+.dark input,
+.dark textarea {
+
+    background:#2c2c2c;                 /* Fundo cinza escuro */
+
+    color:white;                        /* Texto branco */
+
+    border:none;                        /* Remove bordas */
 }
 
-/* HOVER MENU */
-nav a:hover {
-    text-decoration: underline;
-    opacity: 0.8;
+/* Header dark */
+.dark header {                          /* Header no modo escuro */
+
+    background: rgba(20,20,20,0.9);     /* Fundo escuro transparente */
 }
 
-/* SEÇÕES */
-section {
-    padding: 40px 20px;
+/* Cards dark */
+.dark .card,                            /* Sombra dos cards no dark mode */
+.dark .produto {
+
+    box-shadow: 0 5px 20px rgba(0,0,0,0.5);
 }
 
-/* HOME */
-#home {
-    background-color: #ffe0cc;
-    text-align: center;
+header {                                /* Estiliza o cabeçalho */
+
+    display:flex;                       /* Usa layout flexível */
+
+    justify-content:space-between;      /* Distribui itens nas extremidades */
+
+    align-items:center;                 /* Centraliza verticalmente */
+
+    padding:20px 50px;                  /* Espaçamento interno */
+
+    background: rgba(255,145,77,0.9);   /* Cor laranja com transparência */
+
+    backdrop-filter:blur(10px);         /* Efeito vidro fosco */
+
+    position:sticky;                    /* Fixa no topo ao rolar */
+
+    top:0;                              /* Cola no topo */
+
+    z-index:1000;                       /* Fica acima de outros elementos */
+
+    color:white;                        /* Cor do texto */
+
+    border-bottom: 1px solid rgba(255,255,255,0.2); /* Linha fina embaixo */
+
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08); /* Sombra suave */
 }
 
-/* SERVIÇOS */
-#servicos {
-    background-color: #f4f4f4;
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-    flex-wrap: wrap; /* responsivo */
+/* Logo */
+.logo {                                 /* Estilo da logo */
+
+    font-size:2rem;                     /* Tamanho da fonte */
+
+    font-weight:700;                    /* Negrito forte */
+
+    cursor:pointer;                     /* Cursor de mão */
+
+    transition:0.3s;                    /* Suaviza animação */
 }
 
-/* CARDS */
-.card {
-    background-color: white;
-    padding: 20px;
-    border-radius: 12px;
-    width: 180px;
-    text-align: center;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    transition: 0.3s;
+.logo:hover {                           /* Quando mouse passa na logo */
+
+    transform:scale(1.05);              /* Aumenta levemente */
 }
 
-/* EFEITO CARD */
-.card:hover {
-    transform: translateY(-5px);
+/* Menu */
+nav a {                                 /* Links do menu */
+
+    color:white;                        /* Cor branca */
+
+    text-decoration:none;               /* Remove sublinhado */
+
+    margin-left:20px;                   /* Espaço entre links */
+
+    font-weight:600;                    /* Semi-negrito */
+
+    transition:0.3s;                    /* Suaviza hover */
 }
 
-/* CONTATO */
-#contato {
-    background-color: #fff;
-    display: flex;
-    justify-content: center;
+/* Hover menu */
+nav a:hover {                           /* Hover dos links */
+
+    color:#ffe0c7;                      /* Muda para cor mais clara */
 }
 
-/* FORMULÁRIO */
-form {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    max-width: 350px;
-    width: 100%;
+/* Menu mobile */
+.menu-mobile {                          /* Ícone hambúrguer (mobile) */
+
+    display:none;                       /* Escondido no desktop */
+
+    font-size:2rem;                     /* Tamanho grande */
+
+    cursor:pointer;                     /* Mãozinha */
 }
 
-/* INPUTS */
-input,
-textarea {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    font-size: 14px;
+/* Carrinho */
+.carrinho {                             /* Ícone do carrinho */
+
+    font-size:1.2rem;                   /* Tamanho */
+
+    font-weight:bold;                   /* Negrito */
 }
 
-/* FOCO INPUTS */
-input:focus,
-textarea:focus {
-    outline: none;
-    border-color: #ff914d;
+.hero {                                 /* Seção principal (hero) */
+
+    min-height:90vh;                    /* Quase tela cheia */
+
+    display:flex;                       /* Flexbox */
+
+    justify-content:space-around;       /* Espaço entre conteúdo */
+
+    align-items:center;                 /* Centraliza */
+
+    flex-wrap:wrap;                     /* Quebra em mobile */
+
+    padding:50px;                       /* Espaçamento */
+
+    gap:50px;                           /* Espaço entre texto e imagem */
 }
 
-/* BOTÃO */
-button {
-    background-color: #ff914d;
-    color: white;
-    border: none;
-    padding: 12px;
-    border-radius: 6px;
-    cursor: pointer;
-    font-weight: bold;
-    transition: 0.3s;
+/* Hero texto */
+.hero-text {                            /* Caixa de texto do hero */
+
+    max-width:500px;                    /* Largura máxima */
+
+    animation:aparecer 1s ease;         /* Animação de entrada */
 }
 
-/* HOVER BOTÃO */
-button:hover {
-    background-color: #e67e3c;
+/* Título */
+.hero-text h1 {                         /* Título grande */
+
+    font-size:4rem;                     /* Tamanho enorme */
+
+    margin-bottom:20px;                 /* Espaço abaixo */
+
+    line-height:1.1;                    /* Espaçamento entre linhas */
+
+    background: linear-gradient(to right, #ff914d, #ff6b00); /* Degradê */
+
+  background-clip:text;
+
+-webkit-background-clip:text;
+
+color:transparent;
+
+-webkit-text-fill-color:transparent;    /* Aplica degradê no texto */
 }
 
-/* RODAPÉ */
-footer {
-    background-color: #333;
-    color: white;
-    text-align: center;
-    padding: 15px;
+/* Texto */
+.hero-text p {                          /* Parágrafo abaixo do título */
+
+    font-size:1.2rem;                   /* Tamanho */
+
+    margin-bottom:25px;                 /* Espaço abaixo */
 }
 
-/* RESPONSIVIDADE (CELULAR) */
-@media (max-width: 600px) {
-    nav a {
-        display: block;
-        margin: 5px 0;
+/* Botões */
+button {                                /* Estilo geral de botões */
+
+    border:none;                        /* Sem borda */
+
+    cursor:pointer;                     /* Mãozinha */
+
+    transition:0.3s;                    /* Suaviza hover */
+}
+
+/* Hover */
+button:hover {                          /* Hover geral dos botões */
+
+    transform:scale(1.05);              /* Aumenta levemente */
+}
+
+/* Botão hero */
+.hero button {                          /* Botão específico do hero */
+
+    padding:14px 28px;                  /* Tamanho */
+
+    background:#ff914d;                 /* Cor laranja */
+
+    color:white;                        /* Texto branco */
+
+    border-radius:12px;                 /* Arredondado */
+
+    font-size:1rem;                     /* Tamanho fonte */
+
+    box-shadow: 0 10px 20px rgba(255,145,77,0.3); /* Sombra */
+}
+
+/* Hover botão */
+.hero button:hover {                    /* Hover do botão hero */
+
+    background:#ff6b00;                 /* Laranja mais forte */
+}
+
+/* Imagem hero */
+.hero-img img {                         /* Imagem ao lado */
+
+    width:420px;                        /* Largura */
+
+    border-radius:25px;                 /* Arredondado */
+
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2); /* Sombra */
+
+    transition:0.5s;                    /* Suaviza hover */
+}
+
+/* Hover imagem */
+.hero-img img:hover {                   /* Hover da imagem */
+
+    transform: scale(1.03) rotate(1deg); /* Aumenta e gira */
+}
+
+.cards-section {                        /* Seção de serviços */
+
+    padding:80px 50px;                  /* Espaçamento */
+
+    text-align:center;                  /* Centralizado */
+}
+
+/* Área cards */
+.cards {                                /* Container dos cards */
+
+    display:flex;                       /* Flexbox */
+
+    gap:25px;                           /* Espaço entre cards */
+
+    justify-content:center;             /* Centraliza */
+
+    flex-wrap:wrap;                     /* Quebra linha */
+
+    margin-top:40px;                    /* Espaço acima */
+}
+
+/* Card */
+.card {                                 /* Cada card de serviço */
+
+    background:white;                   /* Fundo branco */
+
+    width:270px;                        /* Largura */
+
+    padding:30px;                       /* Espaçamento interno */
+
+    border-radius:20px;                 /* Arredondado */
+
+    transition:0.3s;                    /* Suaviza hover */
+
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1); /* Sombra suave */
+
+    position:relative;                  /* Para usar ::before */
+
+    overflow:hidden;                    /* Esconde o que ultrapassar */
+}
+
+/* Linha topo */
+.card::before {                         /* Barra colorida em cima do card */
+
+    content:"";                         /* Necessário para pseudo-elemento */
+
+    position:absolute;                  /* Posição absoluta */
+
+    width:100%;                         /* Largura total */
+
+    height:5px;                         /* Altura da barra */
+
+    background: linear-gradient(to right, #ff914d, #ff6b00); /* Degradê */
+
+    top:0;                              /* No topo */
+
+    left:0;                             /* À esquerda */
+}
+
+/* Hover */
+.card:hover {                           /* Hover do card */
+
+    transform: translateY(-10px) scale(1.03); /* Sobe e aumenta */
+
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2); /* Sombra mais forte */
+}
+
+/* Emoji */
+.card span {                            /* Emoji dentro do card */
+
+    font-size:3rem;                     /* Tamanho grande */
+}
+
+.galeria {                              /* Seção da galeria */
+
+    padding:80px 50px;                  /* Espaçamento */
+
+    text-align:center;                  /* Centralizado */
+}
+
+/* Pesquisa */
+#pesquisa {                             /* Campo de pesquisa */
+
+    margin-top:30px;                    /* Espaço acima */
+
+    padding:16px 20px;                  /* Tamanho */
+
+    width:320px;                        /* Largura */
+
+    border:none;                        /* Sem borda */
+
+    border-radius:50px;                 /* Bem arredondado */
+
+    outline:none;                       /* Remove contorno ao focar */
+
+    font-size:1rem;                     /* Tamanho fonte */
+
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08); /* Sombra */
+
+    transition:0.3s;                    /* Suaviza */
+}
+
+/* Focus */
+#pesquisa:focus {                       /* Quando clicar no campo */
+
+    transform:scale(1.03);              /* Aumenta levemente */
+
+    box-shadow: 0 10px 30px rgba(255,145,77,0.3); /* Sombra laranja */
+}
+
+/* Produtos */
+.galeria-container {                    /* Container dos produtos */
+
+    display:flex;                       /* Flexbox */
+
+    justify-content:center;             /* Centraliza */
+
+    gap:25px;                           /* Espaço */
+
+    flex-wrap:wrap;                     /* Quebra linha */
+
+    margin-top:40px;                    /* Espaço acima */
+}
+
+/* Produto */
+.produto {                              /* Cada card de produto */
+
+    background:white;                   /* Fundo branco */
+
+    width:280px;                        /* Largura */
+
+    padding:20px;                       /* Espaçamento */
+
+    border-radius:20px;                 /* Arredondado */
+
+    transition:0.3s;                    /* Suaviza */
+
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1); /* Sombra */
+
+    overflow:hidden;                    /* Esconde overflow */
+
+    position:relative;                  /* Posição relativa */
+
+    opacity:1;                          /* Visível */
+
+    transform:translateY(0);            /* Posição inicial */
+}
+
+/* Hover */
+.produto:hover {                        /* Hover do produto */
+
+    transform: translateY(-10px) scale(1.02); /* Sobe e aumenta */
+}
+
+/* Imagem */
+.produto img {                          /* Imagem do produto */
+
+    width:100%;                         /* 100% da largura */
+
+    border-radius:15px;                 /* Arredondado */
+
+    transition:0.4s;                    /* Suaviza */
+}
+
+/* Hover imagem */
+.produto:hover img {                    /* Hover da imagem */
+
+    transform:scale(1.05);              /* Zoom na imagem */
+}
+
+/* Botão */
+.comprar {                              /* Botão comprar */
+
+    margin-top:15px;                    /* Espaço acima */
+
+    padding:12px 20px;                  /* Tamanho */
+
+    background:#ff914d;                 /* Laranja */
+
+    color:white;                        /* Branco */
+
+    border-radius:10px;                 /* Arredondado */
+}
+
+/* Hover botão */
+.comprar:hover {                        /* Hover do botão comprar */
+
+    background:#ff6b00;                 /* Laranja mais escuro */
+}
+
+.contato {                              /* Seção de contato */
+
+    padding:80px 50px;                  /* Espaçamento */
+
+    text-align:center;                  /* Centralizado */
+}
+
+/* Form */
+#formContato {                          /* Formulário de contato */
+
+    max-width:500px;                    /* Largura máxima */
+
+    margin:auto;                        /* Centralizado */
+
+    display:flex;                       /* Flexbox */
+
+    flex-direction:column;              /* Um embaixo do outro */
+
+    gap:15px;                           /* Espaço entre campos */
+
+    margin-top:30px;                    /* Espaço acima */
+}
+
+/* Inputs */
+#formContato input,                     /* Inputs e textarea */
+#formContato textarea {
+
+    padding:15px;                       /* Espaçamento interno */
+
+    border:none;                        /* Sem borda */
+
+    border-radius:12px;                 /* Arredondado */
+
+    outline:none;                       /* Sem contorno */
+
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1); /* Sombra suave */
+}
+
+/* Textarea */
+textarea {                              /* Textarea específico */
+
+    resize:none;                        /* Impede redimensionar */
+
+    min-height:120px;                   /* Altura mínima */
+}
+
+.dark-btn {                             /* Botão flutuante dark mode */
+
+    position:fixed;                     /* Fixo na tela */
+
+    right:20px;                         /* Distância da direita */
+
+    bottom:20px;                        /* Distância de baixo */
+
+    width:60px;                         /* Largura */
+
+    height:60px;                        /* Altura */
+
+    border-radius:50%;                  /* Circular */
+
+    background:#ff914d;                 /* Laranja */
+
+    color:white;                        /* Branco */
+
+    font-size:1.5rem;                   /* Tamanho ícone */
+
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2); /* Sombra */
+
+    transition:0.4s;                    /* Suaviza */
+}
+
+/* Hover */
+.dark-btn:hover {                       /* Hover do botão dark */
+
+    transform: scale(1.1) rotate(10deg); /* Aumenta e gira */
+}
+
+footer {                                /* Rodapé */
+
+    margin-top:50px;                    /* Espaço acima */
+
+    padding:35px;                       /* Espaçamento */
+
+    text-align:center;                  /* Centralizado */
+
+    background: linear-gradient(to right, #ff914d, #ff6b00); /* Degradê */
+
+    color:white;                        /* Texto branco */
+
+    font-weight:500;                    /* Peso da fonte */
+}
+@keyframes aparecer {                   /* Animação de entrada */
+
+    from {                              /* Estado inicial */
+
+        opacity:0;                      /* Invisível */
+
+        transform:translateY(30px);     /* Abaixo */
     }
 
-    #servicos {
-        flex-direction: column;
-        align-items: center;
+    to {                                /* Estado final */
+
+        opacity:1;                      /* Visível */
+
+        transform:translateY(0);        /* Posição normal */
+    }
+}
+
+@media(max-width:768px) {               /* Para telas menores que 768px */
+
+    header {                            /* Ajustes no header */
+
+        padding:20px;                   /* Menos padding */
+    }
+
+    nav {                               /* Menu mobile */
+
+        position:absolute;              /* Posição absoluta */
+
+        top:80px;                       /* Abaixo do header */
+
+        right:0;                        /* Alinhado direita */
+
+        background:#ff914d;             /* Fundo laranja */
+
+        width:200px;                    /* Largura */
+
+        display:none;                   /* Escondido */
+
+        flex-direction:column;          /* Coluna */
+
+        padding:20px;                   /* Espaçamento */
+    }
+
+    nav.active {                        /* Quando menu estiver ativo */
+
+        display:flex;                   /* Mostra o menu */
+    }
+
+    nav a {                             /* Links no mobile */
+
+        margin:10px 0;                  /* Espaçamento vertical */
+    }
+
+    .menu-mobile {                      /* Mostra ícone hambúrguer */
+
+        display:block;                  
+    }
+
+    .hero {                             /* Ajustes no hero */
+
+        text-align:center;              /* Centraliza texto */
+    }
+
+    .hero-text h1 {                     /* Título menor */
+
+        font-size:2.5rem;               
+    }
+
+    .hero-img img {                     /* Imagem responsiva */
+
+        width:90%;                      
+        margin-top:30px;                
+    }
+
+    #pesquisa {                         /* Campo de pesquisa */
+
+        width:90%;                      /* Quase 100% */
     }
 }
